@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Individual Post
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+
+      <div class="card">
+        <div class="card-header">
+          {{post.title}}
+          </div>
+
+        <div class="card-body">
+          <h6 class="card-title"><strong>{{post.subtitle}}</strong></h6>
+          <blockquote class="blockquote mb-0">
+            <p>{{post.content | safe}}</p>
+            <footer class="blockquote-footer">{{post.author}} <cite title="Source Title">{{post.date_posted.strftime('%B %d, %Y')}}</cite></footer>
+          </blockquote>
+          <a href="{{ url_for('comment')}}" class="btn btn-success mt-5">Read Comments</a>
+        </div>
+      </div>
+    <div class="row mt-5">
+        <h4>Comment</h4>
+      <form method="POST">
+        <div class="form-group form-inline">
+          <div class="form-group col-lg-6 col-md-12  firstname">
+            <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Enter firstname" onfocus="this.placeholder=''" onblur="this.placeholder = 'Enter firstname'">
+
+          </div>
+          <div class="form-group col-lg-6 col-md-12  email">
+            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" onfocus="this.placeholder=''" onblur="this.placeholder='Enter email'">
+
+          </div>
+          <div class="form-group">
+            <textarea  type="text" name="comment" class="form-control mt-3 mb-10" id="comment" placeholder="Enter Your comment" onfocus="this.placeholder=''" onblur="this.placeholder='Enter your comment'"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

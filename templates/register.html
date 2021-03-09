@@ -1,0 +1,94 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Register
+{% endblock %}
+
+{% block content %}
+
+ <div class="container">
+    <div class="card">
+      <div class="card-header">Registration</div>
+       <div class="card-body">
+         <form action="" method="POST">
+            {{ form.hidden_tag() }}
+             <div class="form-group">
+                 {{ form.firstname.label(class="form-control-label") }}
+
+                 {% if form.firstname.errors %}
+                     {{ form.firstname(class="form-control form-control-sm") }}
+                 <div class="invalid-feedback">
+                     {% for errors in form.firstname.errors %}
+                        <span>{{ error}}</span>
+                     {% endfor %}
+                 </div>
+                 {% else %}
+                    {{ form.firstname(class="form-control form-control-sm") }}
+                 {% endif %}
+             </div>
+             <div class="form-group">
+                     {{ form.lastname.label(class="form-control-label") }}
+                     {% if form.firstname.errors %}
+                     {{ form.lastname(class="form-control form-control-sm") }}
+                     <div class="invalid-feedback">
+                         {% for errors in form.lastname.errors %}
+                         <span>{{ error}}</span>
+                         {% endfor %}
+                     </div>
+                     {% else %}
+                     {{ form.lastname(class="form-control form-control-sm") }}
+                     {% endif %}
+             </div>
+             <div class="form-group">
+                 {{ form.email.label(class="form-control-label") }}
+                 {% if form.firstname.errors %}
+                 {{ form.email(class="form-control form-control-sm") }}
+                 <div class="invalid-feedback">
+                     {% for errors in form.email.errors %}
+                     <span>{{ error}}</span>
+                     {% endfor %}
+                 </div>
+                 {% else %}
+                 {{ form.email(class="form-control form-control-sm") }}
+                 {% endif %}
+             </div>
+             <div class="form-group">
+                 {{ form.password.label(class="form-control-label") }}
+                 {% if form.firstname.errors %}
+                 {{ form.password(class="form-control form-control-sm") }}
+                 <div class="invalid-feedback">
+                     {% for errors in form.password.errors %}
+                     <span>{{ error}}</span>
+                     {% endfor %}
+                 </div>
+                 {% else %}
+                 {{ form.password(class="form-control form-control-sm") }}
+                 {% endif %}
+             </div>
+             <div class="form-group">
+                 {{ form.confirm_password.label(class="form-control-label") }}
+                 {% if form.firstname.errors %}
+                 {{ form.confirm_password(class="form-control form-control-sm") }}
+                 <div class="invalid-feedback">
+                     {% for errors in form.confirm_password.errors %}
+                     <span>{{ error}}</span>
+                     {% endfor %}
+                 </div>
+                 {% else %}
+                 {{ form.confirm_password(class="form-control form-control-sm") }}
+                 {% endif %}
+             </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+         </form>
+           <div border-top pt-3 >
+               <small class="text-muted">
+                   Aready Have an Account? <a class="ml-2" href="{{ url_for('login') }}">Login</a>
+               </small>
+           </div>
+         <div/>
+    </div>
+    </div>
+  </div>
+{% endblock %}
